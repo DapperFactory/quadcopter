@@ -22,24 +22,29 @@ Servo rudder;
 Servo aileron;
 Servo elevator;
 Servo gear;
-                     //original 
+
+//Radio Pins         //original 
 int csnPin = 12;     //10;
 int cePin = 11;      //9;
+//Flight Control Servo Pins
 int throttlePin = 3; //5;
 int rudderPin = 5;   //6;
 int elePin = 6;      //4;
 int ailPin = 9;      //3;
 int gearPin = 10;    //7;       
+//OO Fancy 
 int blueLedPin = 8;
 int yellowLedPin = 11;
 int redLedPin = 12;
 int megaLedPin = 13;
+//Flight Control Settings
 int throttleSetting = 1220; //1220 us correspnds to 0% thrust on Naza. We want to always know what the throttle setting is for safety reasons.
 int gearSetting = 1855;
+
 int lostRadioCount = 0;
 uint32_t currTime, attiTime; //Left over from Naza Decoder test code. Probably useless, but keeping out of superstition
 boolean armed = false;
-
+//radio settings
 const uint64_t pipe = 0xE8E8F0F0E1LL; // Define the transmit pipe
 RF24 radio(cePin,csnPin); // Create a Radio
 int flightControls[4];  // 4 element array holding Joystick readings
@@ -47,6 +52,7 @@ int flightControls[4];  // 4 element array holding Joystick readings
 //********************TARGET LOCATION*******************
 double targetLat = 35.0;
 double targetLon = -86.0;
+//--------------------hardcarded---------
 
 void setup()
 {

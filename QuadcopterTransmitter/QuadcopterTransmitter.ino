@@ -133,7 +133,8 @@ void setup()
             if (analogRead(rightStickButton) < 20)  //If user is still holding after three beeps, execute the arming sequence and send the arming signal to the receiver
             {   
               for (int i = 0; i < 50; i++)
-              {    
+              {  
+                //Send this to arm device  
                 flightControls[0] = 1220; 
                 flightControls[1] = 1220;
                 flightControls[2] = 1220;
@@ -152,6 +153,7 @@ void setup()
 
 void loop() //This executes during flight and is kept as short as possible.
 {
+  
   int throttle = analogRead(rightPot);
   int aileron = analogRead(leftStickX);
   int rudder = analogRead(rightStickX);
